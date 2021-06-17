@@ -8,6 +8,7 @@ import torch.nn.functional as F
 class Net(nn.Module):
     def __init__(self, dropout_value = 0.1):
         super(Net, self).__init__()
+
         # CONVOLUTION BLOCK 1
         self.convblock1 = nn.Sequential(
             nn.Conv2d(in_channels=3, out_channels=32, kernel_size=(3, 3), padding=1, bias=False),
