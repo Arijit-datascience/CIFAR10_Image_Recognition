@@ -29,4 +29,8 @@ def train(model, device, train_loader, optimizer, epoch, train_losses, train_acc
         correct += pred.eq(target.view_as(pred)).sum().item()
         processed += len(data)
 
+        print('\nTrain set: Average loss: {:.4f}, Train Accuracy: {}/{} ({:.2f}%)\n'.format(
+        	loss, correct, len(train_loader.dataset),
+        	100. * correct / len(train_loader.dataset)))
+
         train_acc.append(100*correct/processed)
