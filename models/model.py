@@ -76,7 +76,7 @@ class Net(nn.Module):
 
         # OUTPUT BLOCK
         self.opblock = nn.Sequential(
-            nn.AvgPool2d(kernel_size=7), # output_size = 1
+            nn.AvgPool2d(kernel_size=6), # output_size = 1
 
             nn.Conv2d(in_channels=64, out_channels=10, kernel_size=(1, 1), padding=0, bias=False),
             # nn.BatchNorm2d(10),
