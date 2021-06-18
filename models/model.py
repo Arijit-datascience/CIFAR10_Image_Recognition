@@ -6,26 +6,27 @@ import torch.nn.functional as F
 
 """Class to define Model architecture for classification of cifar10_mean_std"""
 class Net(nn.Module):
-    def __init__(self, dropout_value = 0.1):
+    def __init__(self, dropout_value = 0.05):
         super(Net, self).__init__()
 
         # CONVOLUTION BLOCK 1
         self.convblock1 = nn.Sequential(
             nn.Conv2d(in_channels=3, out_channels=32, kernel_size=(3, 3), padding=1, bias=False),
             nn.ReLU(),
-            nn.BatchNorm2d(32),
-            nn.Dropout(dropout_value), # output_size = 32, RF = 3
+            nn.BatchNorm2d(32), # output_size = 32, RF = 3
 
             nn.Conv2d(in_channels=32, out_channels=64, kernel_size=(3, 3), padding=1, bias=False),
             nn.ReLU(),
             nn.BatchNorm2d(64),
-            nn.Dropout(dropout_value)
+
         ) # output_size = 32, RF = 5
 
         # TRANSITION BLOCK 1
         self.transblock1 = nn.Sequential(
             nn.Conv2d(in_channels=64, out_channels=32, kernel_size=(1, 1), padding=1, bias=False), # output_size = 34, RF = 5
-            nn.MaxPool2d(2, 2, 1)
+            nn.Conv2d(in_channels=32, out_channels=32, kernel_size=(3, 3), dilation=1, bias=False),
+            nn.Conv2d(in_channels=32, out_channels=32, kernel_size=(3, 3), dilation=1, bias=False),
+            nn.Conv2d(in_channels=32, out_channels=32, kernel_size=(3, 3), dilation=1, bias=False),
         ) # output_size = 18, RF = 6
 
         # CONVOLUTION BLOCK 2
