@@ -34,8 +34,18 @@ _Source_: [https://www.cs.toronto.edu/~kriz/cifar.html](https://www.cs.toronto.e
 
 ## Code Structure
 
+Code is split into different modules(as it should be!). If you are looking for the final notebook, you can find it [here]().  
 
-## Observations
+* [./dataset/](https://github.com/Arijit-datascience/CIFAR10_Image_Recognition/tree/main/dataset) contains the code for data downloading, prepping and preprocessing. You can find code related to transformations and augmentations here.  
+   * [dataset.py](https://github.com/Arijit-datascience/CIFAR10_Image_Recognition/blob/main/dataset/dataset.py): Data loading and processing code is here.
+
+* [./models/](https://github.com/Arijit-datascience/CIFAR10_Image_Recognition/tree/main/models) will take you to our modelling directory which contains code for our network structure and the training and testing modules.  
+   * [model.py](https://github.com/Arijit-datascience/CIFAR10_Image_Recognition/blob/main/models/model.py): Network Architecture code.
+   * [test.py](https://github.com/Arijit-datascience/CIFAR10_Image_Recognition/blob/main/models/test.py): Test code.
+   * [train.py](https://github.com/Arijit-datascience/CIFAR10_Image_Recognition/blob/main/models/train.py): Train code.
+
+* [./plots_accuracy/](https://github.com/Arijit-datascience/CIFAR10_Image_Recognition/tree/main/plots_accuracy) has code for our visualization needs.  
+   * [plots.py](https://github.com/Arijit-datascience/CIFAR10_Image_Recognition/blob/main/plots_accuracy/plots.py): Visualization for Train, Test logs, sample images that were miss predicted.
 
 ## Logs
 
