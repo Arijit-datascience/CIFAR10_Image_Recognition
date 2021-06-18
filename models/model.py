@@ -64,16 +64,15 @@ class Net(nn.Module):
 
             #Depthwise Seperable Convolution
             nn.Conv2d(in_channels=64, out_channels=64, kernel_size=(3, 3), padding=1, groups=64, bias=False),
-            nn.Conv2d(64, 128, kernel_size=1),
             nn.ReLU(),
-            nn.BatchNorm2d(128),
+            nn.BatchNorm2d(64),
             nn.Dropout(dropout_value), # Input: 16x16x32 | Output: 16x16x64 | RF: 14x14
             
         )
 
         # TRANSITION BLOCK 3
         self.transblock3 = nn.Sequential(
-            nn.Conv2d(in_channels=128, out_channels=32, kernel_size=(1, 1), stride=2), 
+            nn.Conv2d(in_channels=64, out_channels=32, kernel_size=(1, 1), stride=2), 
         )# Input: 16x16x64 | Output: 8x8x32 | RF: 44x44
 
         # CONVOLUTION BLOCK 4
