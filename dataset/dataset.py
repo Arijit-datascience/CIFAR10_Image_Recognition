@@ -1,7 +1,11 @@
 import torch
 import torchvision
 import torchvision.transforms as transforms
+from torchvision import datasets
 import numpy as np
+import albumentations as A
+from albumentations.pytorch import ToTensorV2
+import cv2
 
 # Calculating Mean and Standard Deviation
 def cifar10_mean_std():
@@ -25,14 +29,43 @@ def cifar10_mean_std():
 def get_transforms(norm_mean,norm_std):
     """get the train and test transform"""
     print(norm_mean,norm_std)
-    train_transform = transforms.Compose([transforms.RandomRotation(10) , transforms.RandomHorizontalFlip(0.20),
-                                      transforms.ToTensor(),transforms.Normalize(norm_mean, norm_std)])
-    test_transform = transforms.Compose([transforms.ToTensor(),transforms.Normalize(norm_mean, norm_std)])
+    train_transform = A.Compose(
+        [
+        A.HorizontalFlip(p=0.5),
+        A.ShiftScaleRotate(shift_limit=0.05, scale_limit=0.05, rotate_limit=15, p=0.25),
+        A.CoarseDropout(max_holes=1, max_height=16, max_width=16, min_holes=1, min_height=16, min_width=16, fill_value=(norm_mean[0]*255.0,norm_mean[1]*255.0,norm_mean[2]*255.0), mask_fill_value=None),
+        A.Normalize(norm_mean, norm_std),
+        ToTensorV2()
+    ]
+    )
+
+    test_transform = A.Compose(
+        [
+        A.Normalize(norm_mean, norm_std),
+        ToTensorV2()
+    ]
+    )
+    
     return(train_transform,test_transform)
 
 def get_datasets(train_transform,test_transform):
-    train_set = torchvision.datasets.CIFAR10(root='./data', train=True,download=True, transform=train_transform)
-    test_set  = torchvision.datasets.CIFAR10(root='./data', train=False,download=True, transform=test_transform)
+    
+    class Cifar10_SearchDataset(datasets.CIFAR10):
+        def __init__(self, root="./data", train=True, download=True, transform=None):
+            super().__init__(root=root, train=train, download=download, transform=transform)
+            
+        def __getitem__(self, index):
+            image, label = self.data[index], self.targets[index]
+
+            if self.transform is not None:
+                transformed = self.transform(image=image)
+                image = transformed["image"]
+
+            return image, label
+    
+    train_set = Cifar10_SearchDataset(root='./data', train=True,download=True, transform=train_transform)
+    test_set  = Cifar10_SearchDataset(root='./data', train=False,download=True, transform=test_transform)
+
     return(train_set,test_set)
 
 def get_dataloaders(train_set,test_set):
