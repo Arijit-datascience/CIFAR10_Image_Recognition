@@ -35,14 +35,14 @@ class Net(nn.Module):
             nn.Conv2d(in_channels=32, out_channels=32, kernel_size=(3, 3), padding=1, bias=False),
             nn.ReLU(),
             nn.BatchNorm2d(32),
-            nn.Dropout(dropout_value), # Input: 16x16x32 | Output: 16x16x32 | RF: 12x12
+            #nn.Dropout(dropout_value), # Input: 16x16x32 | Output: 16x16x32 | RF: 12x12
             
             #Depthwise Seperable Convolution
             nn.Conv2d(in_channels=32, out_channels=32, kernel_size=(3, 3), padding=1, groups=32, bias=False),
             nn.Conv2d(32, 64, kernel_size=1),
             nn.ReLU(),
             nn.BatchNorm2d(64),
-            nn.Dropout(dropout_value), # Input: 16x16x32 | Output: 16x16x64 | RF: 14x14
+            #nn.Dropout(dropout_value), # Input: 16x16x32 | Output: 16x16x64 | RF: 14x14
         )
 
         # TRANSITION BLOCK 2
@@ -55,19 +55,17 @@ class Net(nn.Module):
             nn.Conv2d(in_channels=32, out_channels=64, kernel_size=(3, 3), padding=1, dilation=2, bias=False),
             nn.ReLU(),
             nn.BatchNorm2d(64),
-            nn.Dropout(dropout_value), # Input: 8x8x32 | Output: 6x6x64 | RF: 34x34
+            #nn.Dropout(dropout_value), # Input: 8x8x32 | Output: 6x6x64 | RF: 34x34
             
             nn.Conv2d(in_channels=64, out_channels=64, kernel_size=(3, 3), padding=1, bias=False),
             nn.ReLU(),
             nn.BatchNorm2d(64),
-            nn.Dropout(dropout_value), # Input: 16x16x64 | Output: 16x16x64 | RF: 36x36
+            #nn.Dropout(dropout_value), # Input: 16x16x64 | Output: 16x16x64 | RF: 36x36
 
             #Depthwise Seperable Convolution
             nn.Conv2d(in_channels=64, out_channels=64, kernel_size=(3, 3), padding=1, groups=64, bias=False),
             nn.ReLU(),
-            nn.BatchNorm2d(64),
-            nn.Dropout(dropout_value), # Input: 16x16x32 | Output: 16x16x64 | RF: 14x14
-            
+            nn.BatchNorm2d(64),# Input: 16x16x32 | Output: 16x16x64 | RF: 14x14
         )
 
         # TRANSITION BLOCK 3
@@ -80,7 +78,6 @@ class Net(nn.Module):
             nn.Conv2d(in_channels=32, out_channels=64, kernel_size=(3, 3), padding=1, bias=False),
             nn.ReLU(),
             nn.BatchNorm2d(64),
-            nn.Dropout(dropout_value),
         ) # Input: 8x8x32 | Output: 8x8x64 | RF: 46x46
 
         # OUTPUT BLOCK
