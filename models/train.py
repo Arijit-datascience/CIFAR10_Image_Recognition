@@ -11,7 +11,8 @@ def train(model, device, train_loader, optimizer, epoch, train_losses, train_acc
     model.train()
     correct = 0
     processed = 0
-
+    l1_factor = 0.0001
+    
     for batch_idx, (data, target) in enumerate(train_loader):
         data, target = data.to(device), target.to(device)
         optimizer.zero_grad()
@@ -22,8 +23,8 @@ def train(model, device, train_loader, optimizer, epoch, train_losses, train_acc
         L1_loss = nn.L1Loss(size_average=None, reduce=None, reduction='mean')
         reg_loss = 0 
         for param in model.parameters():
-	    zero_vector = torch.rand_like(param) * 0
-	    reg_loss += L1_loss(param,zero_vector)
+            zero_vector = torch.rand_like(param) * 0
+            reg_loss += L1_loss(param,zero_vector)
         loss += l1_factor * reg_loss
 
         train_losses.append(loss)
@@ -39,5 +40,4 @@ def train(model, device, train_loader, optimizer, epoch, train_losses, train_acc
         train_acc.append(100*correct/processed)
 
     print('\nTrain set: Average loss: {:.4f}, Train Accuracy: {}/{} ({:.2f}%)\n'.format(
-	loss, correct, len(train_loader.dataset),
-	100. * correct / len(train_loader.dataset)))
+    loss, correct, len(train_loader.dataset),100. * correct / len(train_loader.dataset)))
