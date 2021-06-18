@@ -24,9 +24,9 @@ class Net(nn.Module):
         # TRANSITION BLOCK 1
         self.transblock1 = nn.Sequential(
             nn.Conv2d(in_channels=64, out_channels=32, kernel_size=(1, 1), bias=False), # output_size = 34, RF = 5
-            nn.Conv2d(in_channels=32, out_channels=32, kernel_size=(3, 3), dilation=2, bias=False),
-            nn.Conv2d(in_channels=32, out_channels=32, kernel_size=(3, 3), dilation=2, bias=False),
-            nn.Conv2d(in_channels=32, out_channels=32, kernel_size=(3, 3), dilation=2, bias=False),
+            nn.Conv2d(in_channels=32, out_channels=32, kernel_size=(3, 3), dilation=1, bias=False),
+            nn.Conv2d(in_channels=32, out_channels=32, kernel_size=(3, 3), dilation=1, bias=False),
+            nn.Conv2d(in_channels=32, out_channels=32, kernel_size=(3, 3), dilation=1, bias=False),
         ) # output_size = 26, RF = 11
 
         # CONVOLUTION BLOCK 2
@@ -40,9 +40,9 @@ class Net(nn.Module):
         # TRANSITION BLOCK 2
         self.transblock2 = nn.Sequential(
             nn.Conv2d(in_channels=64, out_channels=32, kernel_size=(1, 1), bias=False), # output_size = 20, RF = 14
-            nn.Conv2d(in_channels=32, out_channels=32, kernel_size=(3, 3), dilation=2, bias=False),
-            nn.Conv2d(in_channels=32, out_channels=32, kernel_size=(3, 3), dilation=2, bias=False),
-            nn.Conv2d(in_channels=32, out_channels=32, kernel_size=(3, 3), dilation=2, bias=False),
+            nn.Conv2d(in_channels=32, out_channels=32, kernel_size=(3, 3), dilation=1, bias=False),
+            nn.Conv2d(in_channels=32, out_channels=32, kernel_size=(3, 3), dilation=1, bias=False),
+            nn.Conv2d(in_channels=32, out_channels=32, kernel_size=(3, 3), dilation=1, bias=False),
         ) # output_size = 16, RF = 21
 
         # CONVOLUTION BLOCK 3 -> DWS and Dialted Conv
@@ -61,9 +61,9 @@ class Net(nn.Module):
         # TRANSITION BLOCK 3
         self.transblock3 = nn.Sequential(
             nn.Conv2d(in_channels=64, out_channels=32, kernel_size=(1, 1), bias=False), # output_size = 11, RF = 40
-            nn.Conv2d(in_channels=32, out_channels=32, kernel_size=(3, 3), dilation=2, bias=False),
-            nn.Conv2d(in_channels=32, out_channels=32, kernel_size=(3, 3), dilation=2, bias=False),
-            nn.Conv2d(in_channels=32, out_channels=32, kernel_size=(3, 3), dilation=2, bias=False),
+            nn.Conv2d(in_channels=32, out_channels=32, kernel_size=(3, 3), dilation=1, bias=False),
+            nn.Conv2d(in_channels=32, out_channels=32, kernel_size=(3, 3), dilation=1, bias=False),
+            nn.Conv2d(in_channels=32, out_channels=32, kernel_size=(3, 3), dilation=1, bias=False),
         )# output_size = 14, RF = 27
 
         # CONVOLUTION BLOCK 4
