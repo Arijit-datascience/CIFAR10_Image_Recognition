@@ -21,7 +21,7 @@ class Net(nn.Module):
 
             nn.Conv2d(in_channels=64, out_channels=128, kernel_size=(3, 3), padding=1, bias=False),
             nn.ReLU(),
-            nn.BatchNorm2d(64),
+            nn.BatchNorm2d(128),
         ) # Input: 32x32x3 | Output: 32x32x64 | RF: 5x5
 
         # TRANSITION BLOCK 1
