@@ -24,7 +24,7 @@ class Net(nn.Module):
         # TRANSITION BLOCK 1
         self.transblock1 = nn.Sequential(
             nn.Conv2d(in_channels=64, out_channels=32, kernel_size=(1, 1), stride=2),
-        ) # Input: 32x32x64 | Output: 16x16x32 | RF: 9x9
+        ) # Input: 32x32x64 | Output: 16x16x32 | RF: 10x10
 
 
         # CONVOLUTION BLOCK 2 -> Depthwise Seperable Convolution
@@ -32,12 +32,13 @@ class Net(nn.Module):
             nn.Conv2d(in_channels=32, out_channels=32, kernel_size=(3, 3), padding=1, bias=False),
             nn.ReLU(),
             nn.BatchNorm2d(32),
-            nn.Dropout(dropout_value), # Input: 16x16x32 | Output: 16x16x32 | RF: 11x11
-
+            nn.Dropout(dropout_value), # Input: 16x16x32 | Output: 16x16x32 | RF: 12x12
+            
+            #Depthwise Seperable Convolution
             nn.Conv2d(in_channels=32, out_channels=64, kernel_size=(3, 3), padding=1, groups=32, bias=False),
             nn.ReLU(),
             nn.BatchNorm2d(64),
-            nn.Dropout(dropout_value), # Input: 16x16x32 | Output: 16x16x64 | RF: 13x13
+            nn.Dropout(dropout_value), # Input: 16x16x32 | Output: 16x16x64 | RF: 14x14
         )
 
         # TRANSITION BLOCK 2
@@ -56,6 +57,12 @@ class Net(nn.Module):
             nn.ReLU(),
             nn.BatchNorm2d(64),
             nn.Dropout(dropout_value), # Input: 16x16x64 | Output: 16x16x64 | RF: 36x36
+
+            #Depthwise Seperable Convolution
+            nn.Conv2d(in_channels=64, out_channels=64, kernel_size=(3, 3), padding=1, groups=64, bias=False),
+            nn.ReLU(),
+            nn.BatchNorm2d(64),
+            nn.Dropout(dropout_value), # Input: 16x16x32 | Output: 16x16x64 | RF: 14x14
         )
 
         # TRANSITION BLOCK 3
