@@ -95,7 +95,7 @@ class Net(nn.Module):
 
         # OUTPUT BLOCK
         self.opblock = nn.Sequential(
-            nn.AvgPool2d(kernel_size=4), # Input: 8x8x64 | Output: 1x1x64 | RF: 46x46
+            nn.AvgPool2d(kernel_size=3), # Input: 8x8x64 | Output: 1x1x64 | RF: 46x46
             nn.Conv2d(in_channels=64, out_channels=10, kernel_size=(1, 1), padding=0, bias=False),
         ) # Input: 1x1x64 | Output: 1x1x10 | RF: 46x46
 
