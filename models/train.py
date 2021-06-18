@@ -19,6 +19,13 @@ def train(model, device, train_loader, optimizer, epoch, train_losses, train_acc
 
         # Calculate loss
         loss = F.nll_loss(output, target)
+        L1_loss = nn.L1Loss(size_average=None, reduce=None, reduction='mean')
+        reg_loss = 0 
+        for param in model.parameters():
+	    zero_vector = torch.rand_like(param) * 0
+	    reg_loss += L1_loss(param,zero_vector)
+        loss += l1_factor * reg_loss
+
         train_losses.append(loss)
 
         # Backpropagation
