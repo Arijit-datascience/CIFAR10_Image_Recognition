@@ -23,11 +23,11 @@ class Net(nn.Module):
 
         # TRANSITION BLOCK 1
         self.transblock1 = nn.Sequential(
-            nn.Conv2d(in_channels=64, out_channels=32, kernel_size=(1, 1), bias=False), # output_size = 34, RF = 5
+            nn.Conv2d(in_channels=64, out_channels=32, kernel_size=(1, 1), padding=1, bias=False), # output_size = 34, RF = 5
             nn.Conv2d(in_channels=32, out_channels=32, kernel_size=(3, 3), dilation=2, bias=False),
             nn.Conv2d(in_channels=32, out_channels=32, kernel_size=(3, 3), dilation=2, bias=False),
             nn.Conv2d(in_channels=32, out_channels=32, kernel_size=(3, 3), dilation=2, bias=False),
-        ) # output_size = 26, RF = 11
+        ) # output_size = 22, RF = 11
 
         # CONVOLUTION BLOCK 2
         self.convblock2 = nn.Sequential(
@@ -39,11 +39,11 @@ class Net(nn.Module):
 
         # TRANSITION BLOCK 2
         self.transblock2 = nn.Sequential(
-            nn.Conv2d(in_channels=64, out_channels=32, kernel_size=(1, 1), bias=False), # output_size = 20, RF = 14
+            nn.Conv2d(in_channels=64, out_channels=32, kernel_size=(1, 1), padding=1, bias=False), # output_size = 20, RF = 14
             nn.Conv2d(in_channels=32, out_channels=32, kernel_size=(3, 3), dilation=2, bias=False),
             nn.Conv2d(in_channels=32, out_channels=32, kernel_size=(3, 3), dilation=2, bias=False),
             nn.Conv2d(in_channels=32, out_channels=32, kernel_size=(3, 3), dilation=2, bias=False),
-        ) # output_size = 16, RF = 21
+        ) # output_size = 10, RF = 21
 
         # CONVOLUTION BLOCK 3 -> DWS and Dialted Conv
         self.convblock3 = nn.Sequential(
@@ -56,15 +56,15 @@ class Net(nn.Module):
             nn.ReLU(),
             nn.BatchNorm2d(64),
             nn.Dropout(dropout_value), # output_size = 11, 24
-        ) # output_size = 20, RF = 23
+        ) # output_size = 12, RF = 23
 
         # TRANSITION BLOCK 3
         self.transblock3 = nn.Sequential(
-            nn.Conv2d(in_channels=64, out_channels=32, kernel_size=(1, 1), bias=False), # output_size = 11, RF = 40
+            nn.Conv2d(in_channels=64, out_channels=32, kernel_size=(1, 1), padding=1, bias=False), # output_size = 11, RF = 40
             nn.Conv2d(in_channels=32, out_channels=32, kernel_size=(3, 3), dilation=2, bias=False),
             nn.Conv2d(in_channels=32, out_channels=32, kernel_size=(3, 3), dilation=2, bias=False),
             nn.Conv2d(in_channels=32, out_channels=32, kernel_size=(3, 3), dilation=2, bias=False),
-        )# output_size = 14, RF = 27
+        )# output_size = 2, RF = 27
 
         # CONVOLUTION BLOCK 4
         self.convblock4 = nn.Sequential(
@@ -72,11 +72,11 @@ class Net(nn.Module):
             nn.ReLU(),
             nn.BatchNorm2d(64),
             nn.Dropout(dropout_value), # output_size = 6, RF = 60
-        ) # output_size = 12, RF = 29
+        ) # output_size = 2, RF = 29
 
         # OUTPUT BLOCK
         self.opblock = nn.Sequential(
-            nn.AvgPool2d(kernel_size=3), # output_size = 1
+            nn.AvgPool2d(kernel_size=2), # output_size = 1
 
             nn.Conv2d(in_channels=64, out_channels=10, kernel_size=(1, 1), padding=0, bias=False),
             # nn.BatchNorm2d(10),
