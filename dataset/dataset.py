@@ -24,7 +24,7 @@ def cifar10_mean_std():
     norm_mean = (np.mean(exp_data[0])/255, np.mean(exp_data[1])/255, np.mean(exp_data[2])/255)
     norm_std   = (np.std(exp_data[0])/255, np.std(exp_data[1])/255, np.std(exp_data[2])/255)
 
-    return(tuple(map(lambda x: np.round(x,2), norm_mean)), tuple(map(lambda x: np.round(x,2), norm_std)))
+    return(tuple(map(lambda x: np.round(x,3), norm_mean)), tuple(map(lambda x: np.round(x,3), norm_std)))
 
 def get_transforms(norm_mean,norm_std):
     """get the train and test transform"""
