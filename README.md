@@ -47,6 +47,8 @@ Code is split into different modules(as it should be!). If you are looking for t
 * [./plots_accuracy/](https://github.com/Arijit-datascience/CIFAR10_Image_Recognition/tree/main/plots_accuracy) has code for our visualization needs.  
    * [plots.py](https://github.com/Arijit-datascience/CIFAR10_Image_Recognition/blob/main/plots_accuracy/plots.py): Visualization for Train, Test logs, sample images that were miss predicted.
 
+* [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://github.com/RohinSequeira/CIFAR10_Image_Recognition/blob/main/CIFAR10_Image_Recognition.ipynb)
+
 ## Logs
 
 ## Misclassified Images
