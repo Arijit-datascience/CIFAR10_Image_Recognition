@@ -11,7 +11,7 @@ def train(model, device, train_loader, optimizer, epoch, train_losses, train_acc
     model.train()
     correct = 0
     processed = 0
-    l1_factor = 0.0001
+    l1_factor = 0
     
     for batch_idx, (data, target) in enumerate(train_loader):
         data, target = data.to(device), target.to(device)
