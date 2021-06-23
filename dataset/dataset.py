@@ -32,9 +32,9 @@ def get_transforms(norm_mean,norm_std):
     train_transform = A.Compose(
         [
         A.HorizontalFlip(p=0.5),
-        A.RandomCrop(height=8, width=8),
         A.ShiftScaleRotate(shift_limit=0.05, scale_limit=0.05, rotate_limit=15, p=0.25),
         A.CoarseDropout(max_holes=1, max_height=16, max_width=16, min_holes=1, min_height=16, min_width=16, fill_value=(norm_mean[0]*255.0,norm_mean[1]*255.0,norm_mean[2]*255.0)),
+        A.RandomBrightnessContrast(p=0.5),
         A.Normalize(norm_mean, norm_std),
         ToTensorV2()
     ]
