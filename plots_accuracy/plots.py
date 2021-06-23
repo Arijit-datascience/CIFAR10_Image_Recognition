@@ -31,7 +31,7 @@ def show_sample_images(data_loader, classes, mean=.5, std=.5, num_of_images = 10
 
 def valid_accuracy_loss_plots(train_losses, train_acc, test_losses, test_acc):
     """Plot validation and accuracy curves"""
-    plt.style.use('ggplot')
+    plt.style.use('seaborn')
 
     fig, axs = plt.subplots(2,2,figsize=(15,10))
     axs[0,0].plot(train_losses)
