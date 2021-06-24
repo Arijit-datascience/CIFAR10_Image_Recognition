@@ -80,6 +80,7 @@ def misclassification(predictions, targets, data):
 
     for plot_index, bad_index in enumerate(misclassified_image[0:10]):
         p = plt.subplot(2, 5, plot_index+1)
-        p.imshow(data[bad_index].reshape(28,28), cmap='gray')
+        img = data.squeeze().permute(1,2,0)
+        p.imshow(img[bad_index].reshape(3,32,32))
         p.axis('off')
         p.set_title(f'Pred:{pred[bad_index]}, Actual:{target[bad_index]}')
