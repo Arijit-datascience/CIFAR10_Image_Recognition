@@ -107,7 +107,7 @@ Code is split into different modules(as it should be!). If you are looking for t
 
 ![image](https://user-images.githubusercontent.com/31658286/123310890-30506680-d544-11eb-8648-728d0bf99bbb.png)
 
-## Conculsions and notes
+## Conclusions and notes
 
 - [x] A GPU based code with Model architecture of C1C2C3C40 (No MaxPooling, but 3 3x3 layers with stride of 2 instead. It would be a bonus if we can figure out how to use Dilated kernels instead of MP or strided convolution)
   - [x] _**Dilated Convolution in place of Max Pooling Achieved!**_
