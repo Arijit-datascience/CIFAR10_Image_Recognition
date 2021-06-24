@@ -2,7 +2,15 @@
 
 Time to try our hands on something more than just digits. How about some cars ... planes ... maybe a few animals here and there? Welcome to our experimentation of Advanced Concepts using CIFAR10 dataset.
 
-### Understanding the CIFAR-10 dataset
+* [**Understanding the CIFAR-10 dataset**](#understanding-the-cifar-10-dataset)
+* [**Concept Time**](#concept-time)
+* [**Objectives**](#objectives)
+* [**Code Structure**](#code-structure)
+* [**Logs**](#logs)
+* [**Conculsions and notes**](#conclusions_and_notes)
+
+
+## Understanding the CIFAR-10 dataset
 
 The CIFAR-10 dataset consists of 60000 32x32 colour images in 10 classes, with 6000 images per class. There are 50000 training images and 10000 test images.
 
@@ -85,10 +93,19 @@ Code is split into different modules(as it should be!). If you are looking for t
 
 * [CIFAR10_Image_Recognition.ipynb](/CIFAR10_Image_Recognition.ipynb) is the one notebook to rule them all! To see the final results of experiments.
 
-
 ## Logs
 
-## Misclassified Images
+### Model Summary
+
+![image](https://user-images.githubusercontent.com/31658286/123310352-a0122180-d543-11eb-9a0b-aad800abe3f6.png)
+
+### Training and Validation Loss
+
+![image](https://user-images.githubusercontent.com/31658286/123310778-16af1f00-d544-11eb-83f2-41bf720709a4.png)
+
+### Training and Validation Accuracy
+
+![image](https://user-images.githubusercontent.com/31658286/123310890-30506680-d544-11eb-8648-728d0bf99bbb.png)
 
 ## Conculsions and notes
 
