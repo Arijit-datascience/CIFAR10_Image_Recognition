@@ -2,6 +2,8 @@
 
 Time to try our hands on something more than just digits. How about some cars ... planes ... maybe a few animals here and there? Welcome to our experimentation of Advanced Concepts using CIFAR10 dataset.
 
+## Topics
+
 * [**Understanding the CIFAR-10 dataset**](#understanding-the-cifar-10-dataset)
 * [**Concept Time**](#concept-time)
 * [**Objectives**](#objectives)
@@ -89,7 +91,7 @@ Code is split into different modules(as it should be!). If you are looking for t
    * [train.py](/models/train.py): Train code. 
 
 * [utils](/utils) has code for our visualization needs.  
-   * [plots.py](/utils/plots.py): Visualization for Train, Test logs, sample images that were miss predicted. 
+   * [plots.py](/utils/plots.py): Visualization for Train, Test logs and sample images. 
 
 * [CIFAR10_Image_Recognition.ipynb](/CIFAR10_Image_Recognition.ipynb) is the one notebook to rule them all! To see the final results of experiments.
 
@@ -109,6 +111,8 @@ Code is split into different modules(as it should be!). If you are looking for t
 
 ## Conclusions and notes
 
+### Objectives Achieved
+
 - [x] A GPU based code with Model architecture of C1C2C3C40 (No MaxPooling, but 3 3x3 layers with stride of 2 instead. It would be a bonus if we can figure out how to use Dilated kernels instead of MP or strided convolution)
   - [x] _**Dilated Convolution in place of Max Pooling Achieved!**_
 - [x] Total Receptive Field of more than _52_: _**Receptive Field of 107 achieved**_
@@ -122,6 +126,11 @@ Code is split into different modules(as it should be!). If you are looking for t
   - [x] _greyscale_
 - [x] Minimun _87_% Test Accuracy: _**Achieved max of 89.35%**_
 - [x] Total Parameters below _100K_: _**96,436 Parameters**_
+
+### Notes:
+
+* In place of Max pooling, we have employed a "Depthwise Convolution" with kernel size of 3 and stride of 2, which reduced the channel size to half.
+* The usage of Depthwise Convolution greatly reduced the number of parameters required as there is only one depth filter for each input channel.
 
 ### Collaborators
 Abhiram Gurijala  
