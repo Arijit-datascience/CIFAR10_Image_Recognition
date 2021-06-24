@@ -14,7 +14,7 @@ def train(model, device, train_loader, optimizer, scheduler, epoch, l1_factor):
         output = model(data)
         loss = F.nll_loss(output, target)
 
-        if L1:
+        if l1_factor > 0:
           L1_loss = nn.L1Loss(size_average=None, reduce=None, reduction='mean')
           reg_loss = 0 
           for param in model.parameters():
