@@ -7,7 +7,7 @@ import torchvision
 import torchvision.transforms as transforms
 
 from torchsummary import summary
-
+import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
 
