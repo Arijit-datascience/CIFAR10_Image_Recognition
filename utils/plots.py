@@ -24,7 +24,7 @@ def show_sample_images(data_loader, classes, mean=.5, std=.5, num_of_images = 10
         print(f'Displaying {num_of_images} images')
     for i in range(num):
         if is_norm:
-            img  = im[i].squeeze().permute(1,2,0)*std+mean
+            img = im[i].squeeze().permute(1,2,0)*std+mean
         plt.subplot(10,10,i+1)
         plt.imshow(img)
         plt.axis('off')
