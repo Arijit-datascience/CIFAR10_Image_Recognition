@@ -6,7 +6,7 @@ import torch.nn.functional as F
 
 """Class to define Model architecture for classification of cifar10_mean_std"""
 class Net(nn.Module):
-    def __init__(self, dropout_value = 0.05):
+    def __init__(self, dropout_value = 0.01):
         super(Net, self).__init__()
 
         # CONVOLUTION BLOCK 1
@@ -20,12 +20,6 @@ class Net(nn.Module):
             nn.ReLU(),
             nn.BatchNorm2d(64),
             nn.Dropout(dropout_value),
-
-            nn.Conv2d(in_channels=64, out_channels=64, kernel_size=(3, 3), padding=1, bias=False),
-            nn.ReLU(),
-            nn.BatchNorm2d(64),
-            nn.Dropout(dropout_value),
-
         ) # Input: 32x32x3 | Output: 32x32x64 | RF: 5x5
 
         # TRANSITION BLOCK 1
