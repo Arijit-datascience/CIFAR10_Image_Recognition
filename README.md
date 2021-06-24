@@ -18,9 +18,11 @@ _Source_: [https://www.cs.toronto.edu/~kriz/cifar.html](https://www.cs.toronto.e
 
 ## Concept Time!
 
-### Dialated Convolution
+### Dilated Convolution
 
 ![dilated_convolution](https://user-images.githubusercontent.com/31658286/123273137-ff5e3a80-d51f-11eb-802f-bca4da9e492e.gif)
+
+_Source_: Rohan Shravan
 
 Dilated convolution is a way of increasing the receptive view (global view) of the network exponentially and linear parameter accretion. With this purpose, it finds usage in applications thats care more about integrating the knowledge of the wider context with less cost.
 
@@ -35,13 +37,19 @@ In many such applications one wants to integrate information from different spat
 ∙ integrating the knowledge of the wider, global context
 
 ![image](https://user-images.githubusercontent.com/31658286/123273667-798ebf00-d520-11eb-81ea-84fd1e922e9b.png)
+                                            
+ _Source_: Rohan Shravan
 
 ![image](https://user-images.githubusercontent.com/31658286/123273824-9aefab00-d520-11eb-9ed2-638434daa46b.png)
+                                            
+ _Source_: Rohan Shravan
 
 
 ### Depthwise Separable Convolution
 
 ![image](https://user-images.githubusercontent.com/31658286/123274042-ca9eb300-d520-11eb-8fe0-dbe8b7d9040c.png)
+
+_Source_: Rohan Shravan
 
 
 ## Objectives
@@ -63,18 +71,19 @@ In many such applications one wants to integrate information from different spat
 
 Code is split into different modules(as it should be!). If you are looking for the final notebook, you can find it [here]().  
 
-* [./dataset/](https://github.com/Arijit-datascience/CIFAR10_Image_Recognition/tree/main/dataset) contains the code for data downloading, prepping and preprocessing. You can find code related to transformations and augmentations here.  
-   * [dataset.py](https://github.com/Arijit-datascience/CIFAR10_Image_Recognition/blob/main/dataset/dataset.py): Data loading and processing code is here.
+* [./dataset/](/dataset) contains the code for data downloading, prepping and preprocessing. You can find code related to transformations and augmentations here.  
+   * [dataset.py](/dataset/dataset.py): Data loading and processing code is here.
 
-* [./models/](https://github.com/Arijit-datascience/CIFAR10_Image_Recognition/tree/main/models) will take you to our modelling directory which contains code for our network structure and the training and testing modules.  
-   * [model.py](https://github.com/Arijit-datascience/CIFAR10_Image_Recognition/blob/main/models/model.py): Network Architecture code.
-   * [test.py](https://github.com/Arijit-datascience/CIFAR10_Image_Recognition/blob/main/models/test.py): Test code.
-   * [train.py](https://github.com/Arijit-datascience/CIFAR10_Image_Recognition/blob/main/models/train.py): Train code.
+* [./models/](/models) will take you to our modelling directory which contains code for our network structure and the training and testing modules.  
+   * [model.py](/models/model.py): Network Architecture code.
+   * [test.py](/models/test.py): Test code.
+   * [train.py](/models/train.py): Train code.
 
-* [./plots_accuracy/](https://github.com/Arijit-datascience/CIFAR10_Image_Recognition/tree/main/plots_accuracy) has code for our visualization needs.  
-   * [plots.py](https://github.com/Arijit-datascience/CIFAR10_Image_Recognition/blob/main/plots_accuracy/plots.py): Visualization for Train, Test logs, sample images that were miss predicted.
+* [./plots_accuracy/](/plots_accuracy) has code for our visualization needs.  
+   * [plots.py](/plots_accuracy/plots.py): Visualization for Train, Test logs, sample images that were miss predicted.
 
-* [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://github.com/RohinSequeira/CIFAR10_Image_Recognition/blob/main/CIFAR10_Image_Recognition.ipynb)
+* [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](/CIFAR10_Image_Recognition.ipynb)
+
 
 ## Logs
 
