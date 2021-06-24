@@ -76,15 +76,15 @@ class Net(nn.Module):
 
         # CONVOLUTION BLOCK 4
         self.convblock4 = nn.Sequential(
-            nn.Conv2d(in_channels=16, out_channels=32, kernel_size=(3, 3), padding=1, bias=False),
+            nn.Conv2d(in_channels=16, out_channels=10, kernel_size=(3, 3), padding=1, bias=False),
             nn.ReLU(),
-            nn.BatchNorm2d(32),
+            nn.BatchNorm2d(10),
         ) # Input: 8x8x32 | Output: 8x8x64 | RF: 46x46
 
         # OUTPUT BLOCK
         self.opblock = nn.Sequential(
-            nn.AvgPool2d(kernel_size=5), # Input: 8x8x64 | Output: 1x1x64 | RF: 46x46
-            nn.Conv2d(in_channels=32, out_channels=10, kernel_size=(1, 1), padding=0, bias=False),
+            nn.AvgPool2d(kernel_size=5) # Input: 8x8x64 | Output: 1x1x64 | RF: 46x46
+            #nn.Conv2d(in_channels=32, out_channels=10, kernel_size=(1, 1), padding=0, bias=False),
         ) # Input: 1x1x64 | Output: 1x1x10 | RF: 46x46
 
 
