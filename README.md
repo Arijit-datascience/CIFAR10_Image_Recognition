@@ -69,20 +69,20 @@ _Source_: Rohan Shravan
 
 ## Code Structure
 
-Code is split into different modules(as it should be!). If you are looking for the final notebook, you can find it [here]().  
+Code is split into different modules(as it should be!). If you are looking for the final notebook, you can find it [here](/CIFAR10_Image_Recognition.ipynb).  
 
-* [./dataset/](/dataset) contains the code for data downloading, prepping and preprocessing. You can find code related to transformations and augmentations here.  
+* [dataset](/dataset) contains the code for data downloading, prepping and preprocessing. You can find code related to transformations and augmentations here.  
    * [dataset.py](/dataset/dataset.py): Data loading and processing code is here.
 
-* [./models/](/models) will take you to our modelling directory which contains code for our network structure and the training and testing modules.  
-   * [model.py](/models/model.py): Network Architecture code.
-   * [test.py](/models/test.py): Test code.
-   * [train.py](/models/train.py): Train code.
+* [models](/models) will take you to our modelling directory which contains code for our network structure and the training and testing modules.  
+   * [model.py](/models/model.py): Network Architecture code. 
+   * [test.py](/models/test.py): Test code. 
+   * [train.py](/models/train.py): Train code. 
 
-* [./plots_accuracy/](/plots_accuracy) has code for our visualization needs.  
-   * [plots.py](/plots_accuracy/plots.py): Visualization for Train, Test logs, sample images that were miss predicted.
+* [utils](/utils) has code for our visualization needs.  
+   * [plots.py](/utils/plots.py): Visualization for Train, Test logs, sample images that were miss predicted. 
 
-* [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](/CIFAR10_Image_Recognition.ipynb)
+* [CIFAR10_Image_Recognition.ipynb](/CIFAR10_Image_Recognition.ipynb) is the one notebook to rule them all! To see the final results of experiments.
 
 
 ## Logs
