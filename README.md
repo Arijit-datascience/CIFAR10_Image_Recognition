@@ -7,7 +7,7 @@ Time to try our hands on something more than just digits. How about some cars ..
 * [**Objectives**](#objectives)
 * [**Code Structure**](#code-structure)
 * [**Logs**](#logs)
-* [**Conculsions and notes**](#conclusions_and_notes)
+* [**Conclusions and notes**](#conclusions_and_notes)
 
 
 ## Understanding the CIFAR-10 dataset
@@ -111,7 +111,7 @@ Code is split into different modules(as it should be!). If you are looking for t
 
 - [x] A GPU based code with Model architecture of C1C2C3C40 (No MaxPooling, but 3 3x3 layers with stride of 2 instead. It would be a bonus if we can figure out how to use Dilated kernels instead of MP or strided convolution)
   - [x] _**Dilated Convolution in place of Max Pooling Achieved!**_
-- [x] Total Receptive Field of more than _52_
+- [x] Total Receptive Field of more than _52_: _**Receptive Field of 107 achieved**_
 - [x] _Two_ of the layers must use Depthwise Separable Convolution
 - [x] One of the layers must use Dilated Convolution
 - [x] _use GAP (compulsory mapped to # of classes):- CANNOT add FC after GAP to target # of classes_
@@ -120,8 +120,8 @@ Code is split into different modules(as it should be!). If you are looking for t
   - [x] shiftScaleRotate
   - [x] coarseDropout (max_holes = 1, max_height=16px, max_width=1, min_holes = 1, min_height=16px, min_width=16px, fill_value=(mean of your dataset), mask_fill_value = None)
   - [x] _greyscale_
-- [x] Minimun _87_% Test Accuracy
-- [x] Total Parameters below _100K_
+- [x] Minimun _87_% Test Accuracy: _**Achieved max of 89.35%**_
+- [x] Total Parameters below _100K_: _**96,436 Parameters**_
 
 ### Collaborators
 Abhiram Gurijala  
