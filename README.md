@@ -7,7 +7,7 @@ Time to try our hands on something more than just digits. How about some cars ..
 * [**Objectives**](#objectives)
 * [**Code Structure**](#code-structure)
 * [**Logs**](#logs)
-* [**Conclusions and notes**](#conclusions_and_notes)
+* [**Conclusions and notes**](#conclusions-and-notes)
 
 
 ## Understanding the CIFAR-10 dataset
