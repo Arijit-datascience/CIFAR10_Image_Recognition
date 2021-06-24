@@ -48,7 +48,7 @@ def valid_accuracy_loss_plots(train_loss, train_acc, test_loss, test_acc):
     ax1.set_title("Training & Validation Loss")
     ax1.set_xlabel("Epoch")
     ax1.set_ylabel("Loss")
-    ax1.set_ylim(0,0.4)
+    ax1.set_ylim(0.3,1)
     ax1.legend()
 
     ax2.plot(np.array(train_acc), 'red', label="Training Accuracy")
@@ -58,7 +58,7 @@ def valid_accuracy_loss_plots(train_loss, train_acc, test_loss, test_acc):
     ax2.set_title("Training & Validation Accuracy")
     ax2.set_xlabel("Epoch")
     ax2.set_ylabel("Loss")
-    ax2.set_ylim(70,100)
+    ax2.set_ylim(30,90)
     ax2.legend()
 
     plt.show()
